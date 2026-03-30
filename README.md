@@ -89,14 +89,13 @@ This was developed and tested on:
 
 | Component | Detail |
 |---|---|
-| Machine | Framework Laptop 13 (Intel Core Ultra Series 1) |
-| OS | Bluefin LTS `bluefin-dx:lts-hwe` (CentOS 10 base) |
-| Kernel | 6.17.12-200.fc42.x86_64 |
-| CPU | Intel Core Ultra 7 155H (22 logical cores, Meteor Lake) |
-| GPU | Intel Arc Graphics (Meteor Lake-P, `8086:7d55`, `i915`/`xe` drivers) |
-| RAM | 16 GB LPDDR5 |
+| Machine | Lenovo ThinkPad P14s (Gen 6 AMD) |
+| OS | Bluefin `bluefin-dx:stable` (Version: 43.20260324) |
+| Kernel | 6.18.13-200.fc43.x86_64 |
+| CPU | AMD Ryzen AI 9 HX PRO 370 |
+| GPU | AMD Radeon 890M Graphics |
+| RAM | 64 GB LPDDR5 |
 | Storage | NVMe SSD |
-| Battery | BAT1 — 4-cell, 77 cycles at time of writing |
 
 ---
 
