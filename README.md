@@ -179,8 +179,17 @@ scrape_configs:
       - targets: ['node_exporter:9100']
 EOF
 ```
+### 4. Install Quadlets, Reload systemd and start services
 
-### 4. Reload systemd and start services
+```bash
+podman quadlet install ~/.config/containers/systemd/monitoring.network
+podman quadlet install ~/.config/containers/systemd/prometheus-data.volume
+podman quadlet install ~/.config/containers/systemd/perses-data.volume
+podman quadlet install ~/.config/containers/systemd/node-exporter.container
+podman quadlet install ~/.config/containers/systemd/podman-exporter.container
+podman quadlet install ~/.config/containers/systemd/prometheus.container
+podman quadlet install ~/.config/containers/systemd/perses.container
+```
 
 ```bash
 systemctl --user daemon-reload
@@ -348,7 +357,8 @@ WantedBy=default.target
 ```
 
 **Notes:**
-- `Volume=/run/user/1000/podman/podman.sock` — mounts the user Podman socket (UID 1000). Adjust if your UID differs.
+- `Volume=/run/user/1000/podman/podman.sock` — mounts the user Podman socket (UID 1000). Check: `systemctl --user status podman.socket` — match `Listen:`
+-  Ensure user podman.socket starts on reboot — `systemctl --user enable --now podman.socket`
 - `UserNS=keep-id` — runs as your login UID so socket ownership matches.
 - `SecurityLabelDisable=true` — the socket is on tmpfs; `:z` SELinux relabeling would fail.
 - `--collector.enable-all` — enables all Podman collectors (container, image, network, pod, volume, system).
