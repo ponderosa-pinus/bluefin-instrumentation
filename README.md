@@ -85,7 +85,7 @@ Rootless containers cannot read PID 1's namespace files. The node_exporter files
 
 ## Hardware Reference
 
-This was developed and tested on:
+This was tested on:
 
 | Component | Detail |
 |---|---|
